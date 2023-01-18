@@ -1,9 +1,9 @@
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { useAppSelector } from "../../app/hooks";
 import { toLocalCurrency } from "../../helper";
-import { getExpenditure, expenditureStore } from "./expenditureSlice";
+import { expenditureStore } from "./expenditureSlice";
 
 export function Expenditure() {
-  const { value: expenditures, status } = useAppSelector(expenditureStore);
+  const { value: expenditures } = useAppSelector(expenditureStore);
   return (
     <div className="grid grid-cols-4 gap-4 mt-4">
       {expenditures.map(({ date, items }, id) => (
