@@ -7,6 +7,36 @@
       "pengeluaraan": 79750
     },
     {
+      "jam": "20:00",
+      "tanggal": "16 Januari 2023",
+      "nama": "Tahu Campur",
+      "pengeluaraan": 20000
+    },
+    {
+      "jam": "10:05",
+      "tanggal": "16 Januari 2023",
+      "nama": "Ayam Geprek",
+      "pengeluaraan": 15500
+    },
+    {
+      "jam": "17:30",
+      "tanggal": "15 Januari 2023",
+      "nama": "Nasi Goreng",
+      "pengeluaraan": 12000
+    },
+    {
+      "jam": "13:00",
+      "tanggal": "15 Januari 2023",
+      "nama": "Mie Ayam",
+      "pengeluaraan": 10000
+    },
+    {
+      "jam": "09:30",
+      "tanggal": "15 Januari 2023",
+      "nama": "Nasi Pecel",
+      "pengeluaraan": 8000
+    },
+    {
       "jam": "03:15",
       "tanggal": "18 Februari 2021",
       "nama": "Ayam Tangkap",

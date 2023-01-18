@@ -1,22 +1,22 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import { fetchExpenditure } from "./expenditureAPI";
 
-// type ExpenditureType = {
-//   date: string;
-//   items: Array<{
-//     hour: string;
-//     name: string;
-//     expenditure: string;
-//   }>;
-// };
+type ExpenditureValueType = {
+  date: string;
+  items: Array<{
+    clockTime: string;
+    name: string;
+    expenditure: number;
+  }>;
+};
 
 const date = new Date();
 
 export interface ExpenditureState {
   currentMonth: string;
   totalExpenditureCurrentMonth: number;
-  value: any[];
+  value: ExpenditureValueType[];
   status: "idle" | "loading" | "failed";
 }
 
@@ -44,6 +44,7 @@ export const expenditureSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(getExpenditure.fulfilled, (state, action) => {
+      // Get total expenditure for current month
       const total = action.payload
         .filter(({ tanggal }) => {
           const newDate = new Date(tanggal);
@@ -54,7 +55,28 @@ export const expenditureSlice = createSlice({
         })
         .reduce((acc, cur) => acc + cur.pengeluaraan, 0);
       state.totalExpenditureCurrentMonth = total;
-      state.value = action.payload;
+
+      // list of expenditures
+      const currentMonthData = action.payload.filter(({ tanggal }) => {
+        const newDate = new Date(tanggal);
+        return (
+          newDate.getMonth() === date.getMonth() &&
+          newDate.getFullYear() === date.getFullYear()
+        );
+      });
+      const dates = currentMonthData
+        .map(({ tanggal }) => tanggal)
+        .filter((x, i, a) => a.indexOf(x) === i);
+      state.value = dates.map((date) => ({
+        date,
+        items: currentMonthData
+          .filter(({ tanggal }) => tanggal === date)
+          .map(({ jam: clockTime, nama: name, pengeluaraan: expenditure }) => ({
+            clockTime,
+            name,
+            expenditure,
+          })),
+      }));
     });
     builder.addCase(getExpenditure.rejected, (state) => {
       state.status = "failed";

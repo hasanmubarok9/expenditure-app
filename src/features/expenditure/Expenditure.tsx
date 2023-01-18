@@ -1,24 +1,23 @@
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { toLocalCurrency } from "../../helper";
 import { getExpenditure, expenditureStore } from "./expenditureSlice";
 
 export function Expenditure() {
   const { value: expenditures, status } = useAppSelector(expenditureStore);
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-4 gap-4 mt-4">
       {expenditures.map(({ date, items }, id) => (
         <div className="p-4 shadow-md" key={id}>
-          <p>{date}</p>
-          {expenditures.length > 0 && (
+          <p className="font-semibold mb-4">{date}</p>
+          {items.length > 0 && (
             <ul>
-              {expenditures.map(
-                ({ jam: hour, nama: name, pengeluaraan: expenditure }, id) => (
-                  <li className="flex items-center" key={id}>
-                    <p>{hour}</p>
-                    <p>{name}</p>
-                    <p>{expenditure}</p>
-                  </li>
-                )
-              )}
+              {items.map(({ clockTime, name, expenditure }, id) => (
+                <li className="flex items-center gap-4" key={id}>
+                  <p>{clockTime}</p>
+                  <p>{name}</p>
+                  <p className="ml-auto">{toLocalCurrency(expenditure)}</p>
+                </li>
+              ))}
             </ul>
           )}
         </div>
