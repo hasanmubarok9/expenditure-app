@@ -2,6 +2,12 @@
   "items": [
     {
       "jam": "03:15",
+      "tanggal": "17 Januari 2023",
+      "nama": "Nasi Padang",
+      "pengeluaraan": 79750
+    },
+    {
+      "jam": "03:15",
       "tanggal": "18 Februari 2021",
       "nama": "Ayam Tangkap",
       "pengeluaraan": 77249

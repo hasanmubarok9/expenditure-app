@@ -10,13 +10,15 @@ export function Expenditure() {
           <p>{date}</p>
           {expenditures.length > 0 && (
             <ul>
-              {expenditures.map(({ jam: hour, nama: name, pengeluaraan: expenditure }, id) => (
-                <li className="flex items-center" key={id}>
-                  <p>{hour}</p>
-                  <p>{name}</p>
-                  <p>{expenditure}</p>
-                </li>
-              ))}
+              {expenditures.map(
+                ({ jam: hour, nama: name, pengeluaraan: expenditure }, id) => (
+                  <li className="flex items-center" key={id}>
+                    <p>{hour}</p>
+                    <p>{name}</p>
+                    <p>{expenditure}</p>
+                  </li>
+                )
+              )}
             </ul>
           )}
         </div>

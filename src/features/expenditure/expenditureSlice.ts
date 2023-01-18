@@ -44,6 +44,16 @@ export const expenditureSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(getExpenditure.fulfilled, (state, action) => {
+      const total = action.payload
+        .filter(({ tanggal }) => {
+          const newDate = new Date(tanggal);
+          return (
+            newDate.getMonth() === date.getMonth() &&
+            newDate.getFullYear() === date.getFullYear()
+          );
+        })
+        .reduce((acc, cur) => acc + cur.pengeluaraan, 0);
+      state.totalExpenditureCurrentMonth = total;
       state.value = action.payload;
     });
     builder.addCase(getExpenditure.rejected, (state) => {
