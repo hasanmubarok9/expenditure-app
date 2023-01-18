@@ -11,12 +11,18 @@ import { fetchExpenditure } from "./expenditureAPI";
 //   }>;
 // };
 
+const date = new Date();
+
 export interface ExpenditureState {
+  currentMonth: string;
+  totalExpenditureCurrentMonth: number;
   value: any[];
   status: "idle" | "loading" | "failed";
 }
 
 const initialState: ExpenditureState = {
+  currentMonth: date.toLocaleString("id", { month: "long", year: "numeric" }),
+  totalExpenditureCurrentMonth: 10000,
   value: [],
   status: "idle",
 };

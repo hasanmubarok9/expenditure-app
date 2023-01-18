@@ -6,7 +6,7 @@ export function Expenditure() {
   return (
     <div className="grid grid-cols-4 gap-4">
       {expenditures.map(({ date, items }, id) => (
-        <div className="p-6" key={id}>
+        <div className="p-4 shadow-md" key={id}>
           <p>{date}</p>
           {expenditures.length > 0 && (
             <ul>
