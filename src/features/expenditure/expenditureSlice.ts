@@ -13,6 +13,7 @@ type ExpenditureValueType = {
     name: string;
     expenditure: number;
   }>;
+  total: number;
 };
 
 const date = new Date();
@@ -65,7 +66,7 @@ export const expenditureSlice = createSlice({
             newDate.getFullYear() === date.getFullYear()
           );
         })
-        .reduce((acc, cur) => acc + cur.pengeluaraan, 0);
+        .reduce((acc, { pengeluaraan }) => acc + pengeluaraan, 0);
       state.totalExpenditureCurrentMonth = total;
 
       // list of expenditures
@@ -91,6 +92,9 @@ export const expenditureSlice = createSlice({
             name,
             expenditure,
           })),
+        total: currentMonthData
+          .filter(({ tanggal }) => tanggal === date)
+          .reduce((acc, { pengeluaraan }) => acc + pengeluaraan, 0),
       }));
     });
     builder.addCase(getExpenditure.rejected, (state) => {
