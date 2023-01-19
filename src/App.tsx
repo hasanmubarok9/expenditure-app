@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import {
   getExpenditure,
@@ -8,8 +8,11 @@ import { toLocalCurrency } from "./helper";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import Button from "./components/Button";
 import { Expenditure } from "./features/expenditure/Expenditure";
+import Modal from "./components/Modal";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const dispatch = useAppDispatch();
   const { currentMonth, totalExpenditureCurrentMonth } =
     useAppSelector(expenditureStore);
@@ -25,9 +28,20 @@ function App() {
         <h2 className="mb-2">
           Pengeluaran Bulan Ini {toLocalCurrency(totalExpenditureCurrentMonth)}
         </h2>
-        <Button variant="primary" text="TAMBAH ITEM" />
+        <Button
+          variant="primary"
+          text="TAMBAH ITEM"
+          onClick={() => setIsModalOpen(true)}
+        />
       </div>
       <Expenditure />
+      {isModalOpen && (
+        <Modal
+          onClickOutside={() => setIsModalOpen(false)}
+          onClickCancel={() => setIsModalOpen(false)}
+          onClickSubmit={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 }

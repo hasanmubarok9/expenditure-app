@@ -5,7 +5,7 @@ import { expenditureStore } from "./expenditureSlice";
 export function Expenditure() {
   const { value: expenditures } = useAppSelector(expenditureStore);
   return (
-    <div className="grid grid-cols-4 gap-4 mt-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
       {expenditures.map(({ date, items }, id) => (
         <div className="p-4 shadow-md" key={id}>
           <p className="font-semibold mb-4">{date}</p>
