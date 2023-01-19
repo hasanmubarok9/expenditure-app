@@ -1,6 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { fetchExpenditure } from "./expenditureAPI";
+import {
+  fetchExpenditure,
+  postExpenditure,
+  ExpenditureType,
+} from "./expenditureAPI";
 
 type ExpenditureValueType = {
   date: string;
@@ -31,6 +35,14 @@ export const getExpenditure = createAsyncThunk(
   "expenditure/getExpenditure",
   async () => {
     const response = await fetchExpenditure();
+    return response;
+  }
+);
+
+export const addExpenditure = createAsyncThunk(
+  "expenditure/addExpenditure",
+  async (params: ExpenditureType) => {
+    const response = await postExpenditure(params);
     return response;
   }
 );
@@ -66,7 +78,10 @@ export const expenditureSlice = createSlice({
       });
       const dates = currentMonthData
         .map(({ tanggal }) => tanggal)
-        .filter((x, i, a) => a.indexOf(x) === i);
+        .filter((x, i, a) => a.indexOf(x) === i)
+        .sort((a, b) => {
+          return new Date(a) > new Date(b) ? -1 : 1;
+        });
       state.value = dates.map((date) => ({
         date,
         items: currentMonthData

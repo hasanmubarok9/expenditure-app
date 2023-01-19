@@ -1,70 +1,81 @@
 {
   "items": [
     {
-      "jam": "03:15",
-      "tanggal": "17 Januari 2023",
-      "nama": "Nasi Padang",
-      "pengeluaraan": 79750
-    },
-    {
-      "jam": "20:00",
-      "tanggal": "16 Januari 2023",
-      "nama": "Tahu Campur",
-      "pengeluaraan": 20000
-    },
-    {
-      "jam": "10:05",
-      "tanggal": "16 Januari 2023",
-      "nama": "Ayam Geprek",
-      "pengeluaraan": 15500
-    },
-    {
-      "jam": "17:30",
+      "id": 1,
+      "jam": "07.08",
       "tanggal": "15 Januari 2023",
-      "nama": "Nasi Goreng",
-      "pengeluaraan": 12000
-    },
-    {
-      "jam": "13:00",
-      "tanggal": "15 Januari 2023",
-      "nama": "Mie Ayam",
-      "pengeluaraan": 10000
-    },
-    {
-      "jam": "09:30",
-      "tanggal": "15 Januari 2023",
-      "nama": "Nasi Pecel",
-      "pengeluaraan": 8000
-    },
-    {
-      "jam": "03:15",
-      "tanggal": "18 Februari 2021",
       "nama": "Ayam Tangkap",
       "pengeluaraan": 77249
     },
     {
-      "jam": "03:15",
-      "tanggal": "18 Februari 2021",
-      "nama": "Mie Rebus",
-      "pengeluaraan": 32154
-    },
-    {
-      "jam": "00:20",
-      "tanggal": "17 Februari 2021",
-      "nama": "Soto Kuning",
-      "pengeluaraan": 34992
-    },
-    {
-      "jam": "05:59",
-      "tanggal": "17 Februari 2021",
+      "id": 2,
+      "jam": "13.20",
+      "tanggal": "15 Januari 2023",
       "nama": "Ayam Geprek",
-      "pengeluaraan": 37674
+      "pengeluaraan": 8900
     },
     {
-      "jam": "05:45",
-      "tanggal": "16 Februari 2021",
-      "nama": "Otak-otak",
-      "pengeluaraan": 11971
+      "id": 3,
+      "jam": "17.30",
+      "tanggal": "15 Januari 2023",
+      "nama": "Ayam Goreng",
+      "pengeluaraan": 9500
+    },
+    {
+      "id": 4,
+      "jam": "09.30",
+      "tanggal": "16 Januari 2023",
+      "nama": "Nasi Pecel",
+      "pengeluaraan": 10000
+    },
+    {
+      "id": 5,
+      "jam": "14.00",
+      "tanggal": "16 Januari 2023",
+      "nama": "Soto Ayam",
+      "pengeluaraan": 15000
+    },
+    {
+      "id": 6,
+      "jam": "08.00",
+      "tanggal": "17 Januari 2023",
+      "nama": "Nasi Rames",
+      "pengeluaraan": 10000
+    },
+    {
+      "id": 7,
+      "jam": "10.20",
+      "tanggal": "18 Januari 2023",
+      "nama": "Nasi Padang",
+      "pengeluaraan": 12000
+    },
+    {
+      "id": 8,
+      "jam": "15.00",
+      "tanggal": "18 Januari 2023",
+      "nama": "Sate Ayam",
+      "pengeluaraan": 13400
+    },
+    {
+      "id": 9,
+      "jam": "14.00",
+      "tanggal": "19 Januari 2023",
+      "nama": "Mie Ayam",
+      "pengeluaraan": 11560
+    },
+    {
+      "jam": "12:46",
+      "tanggal": "19 Januari 2023",
+      "nama": "Ayam Bakar",
+      "pengeluaraan": 20000,
+      "id": 10
+    },
+    {
+      "jam": "12:47",
+      "tanggal": "19 Januari 2023",
+      "nama": "Ikan Bakar",
+      "pengeluaraan": 21000,
+      "id": 11
     }
   ]
 }

@@ -1,11 +1,12 @@
-import { InputHTMLAttributes } from "react";
+import { ChangeEventHandler, InputHTMLAttributes } from "react";
 
 type InputPropsType = {
   label: string;
   className?: string;
+  handleChange: ChangeEventHandler<HTMLInputElement>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const Input = ({ className, label, ...props }: InputPropsType) => {
+const Input = ({ className, label, handleChange, ...props }: InputPropsType) => {
   return (
     <div className={className}>
       <label htmlFor={props.id} className="block mb-2 text-sm font-medium">
@@ -17,6 +18,7 @@ const Input = ({ className, label, ...props }: InputPropsType) => {
         id={props.id}
         required={props.required}
         {...props}
+        onChange={handleChange}
       />
     </div>
   );
